@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Sanjay J | UI/UX Designer Full stack Developer Cyber security </title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700Playfair+Display:wght@400;500;600;700&display=swap&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+      :root {
+        --primary-color: #4361ee;
+        --secondary-color: #3a0ca3;
+        --accent-color: #4cc9f0;
+        --dark-color: #0a0a23;
+        --medium-color: #1b1b32;
+        --light-color: #f8f9fa;
+        --white: #ffffff;
+        --gradient-1: linear-gradient(135deg, #0a0a23 0%, #1b1b32 100%);
+        --gradient-2: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        --max-width: 1200px;
+        --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+        --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--light-color);
+        background: var(--gradient-1);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .section__container {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 6rem 1rem;
+      }
+
+      .section__header {
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        position: relative;
+      }
+
+      .section__header:after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        margin: 1rem auto;
+        background: var(--gradient-2);
+        border-radius: 2px;
+      }
+
+      .section__description {
+        max-width: 700px;
+        margin-inline: auto;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        line-height: 1.75rem;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        padding: 0.85rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--white);
+        background-image: var(--gradient-2);
+        outline: none;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .btn:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: var(--primary-color);
+        transition: var(--transition);
+        z-index: -1;
+      }
+
+      .btn:hover:before {
+        width: 100%;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px -10px rgba(67, 97, 238, 0.4);
+      }
+
+      .btn__outline {
+        background: transparent;
+        border: 2px solid var(--accent-color);
+        color: var(--accent-color);
+        margin-left: 1rem;
+      }
+
+      .btn__outline:hover {
+        background: var(--accent-color);
+        color: var(--white);
+      }
+
+      img {
+        width: 100%;
+        display: flex;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+        background: var(--gradient-2);
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        transform: rotate(15deg);
+      }
+
+      .logo:hover {
+        transform: rotate(0deg) scale(1.1);
+      }
+
+      /* Navbar */
+      nav {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      nav.scrolled {
+        background: rgba(10, 10, 35, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav__container {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 1.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .nav__logo .logo {
+        margin-right: 0.5rem;
+      }
+
+      .nav__links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav__links a {
+        font-weight: 500;
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .nav__links a:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-2);
+        transition: var(--transition);
+      }
+
+      .nav__links a:hover:after {
+        width: 100%;
+      }
+
+      .nav__menu__btn {
+        display: none;
+        font-size: 1.5rem;
+        color: var(--white);
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      /* Header */
+      .header__container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 6rem;
+      }
+
+      .header__content {
+        flex: 1;
+        padding-right: 2rem;
+      }
+
+      .header__content h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .header__content p {
+        margin-bottom: 2.5rem;
+        font-size: 1.2rem;
+      }
+
+      .header__image {
+        flex: 1;
+        position: relative;
+      }
+
+      .header__image img {
+        max-width: 450px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .header__social {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .header__social a {
+        font-size: 1.5rem;
+        color: var(--light-color);
+        transition: var(--transition);
+      }
+
+      .header__social a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      /* About */
+      .about__container {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+
+      .about__image {
+        flex: 1;
+        position: relative;
+      }
+
+      .about__image img {
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .about__content {
+        flex: 1;
+      }
+
+      .about__content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+      }
+
+      .about__content p {
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Skills */
+      .about__skills {
+        margin-top: 2rem;
+      }
+
+      .about__skills h4 {
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+      }
+
+      .skill__item {
+        margin-bottom: 1.2rem;
+      }
+
+      .skill__info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+
+      .skill__name {
+        font-weight: 500;
+      }
+
+      .skill__level {
+        color: var(--accent-color);
+      }
+
+      .skill__bar {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .skill__progress {
+        height: 100%;
+        background: var(--gradient-2);
+        border-radius: 4px;
+        transition: width 1.5s ease;
+      }
+
+      /* Projects */
+      .projects__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .project__card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+      }
+
+      .project__card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px -15px rgba(67, 97, 238, 0.4);
+      }
+
+      .project__image {
+        height: 220px;
+        overflow: hidden;
+      }
+
+      .project__image img {
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .project__card:hover .project__image img {
+        transform: scale(1.1);
+      }
+
+      .project__content {
+        padding: 1.5rem;
+      }
+
+      .project__content h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+      }
+
+      .project__content p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .project__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .project__tag {
+        padding: 0.3rem 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        font-size: 0.8rem;
+      }
+
+      .project__links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .project__links a {
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        color: var(--light-color);
+        transition: var(--transition);
+      }
+
+      .project__links a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Certificates */
+      .certificates__container {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 20px;
+        padding: 3rem;
+      }
+
+      .certificates__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .certificate__card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 1.5rem;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+      }
+
+      .certificate__card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px -10px rgba(67, 97, 238, 0.3);
+      }
+
+      .certificate__header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .certificate__icon {
+        font-size: 2rem;
+        color: var(--accent-color);
+      }
+
+      .certificate__content h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .certificate__content p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+
+      .certificate__date {
+        display: inline-block;
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: var(--accent-color);
+        font-weight: 500;
+      }
+
+      /* Certificate Images */
+      .certificate-images__container {
+        margin-top: 5rem;
+      }
+
+      .certificate-images__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .certificate-image__card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+      }
+
+      .certificate-image__card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px -10px rgba(67, 97, 238, 0.3);
+      }
+
+      .certificate-image__card img {
+        height: 200px;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .certificate-image__card:hover img {
+        transform: scale(1.05);
+      }
+
+      .certificate-image__content {
+        padding: 1.5rem;
+      }
+
+      .certificate-image__content h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .certificate-image__content p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.85rem;
+      }
+
+      /* Contact */
+      .contact__container {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .contact__container .logo {
+        margin-bottom: 1.5rem;
+      }
+
+      .contact__form {
+        margin-top: 3rem;
+      }
+
+      .form__group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form__control {
+        width: 100%;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: var(--white);
+        font-family: inherit;
+        transition: var(--transition);
+      }
+
+      .form__control:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        background: rgba(76, 201, 240, 0.05);
+      }
+
+      textarea.form__control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .contact__socials {
+        margin-top: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .contact__socials a {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .contact__socials a:hover {
+        background: var(--gradient-2);
+        transform: translateY(-5px);
+      }
+
+      /* Footer */
+      .footer {
+        padding: 2rem 0;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .footer__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer__links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .footer__links a {
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .footer__links a:hover {
+        color: var(--accent-color);
+      }
+
+      .footer__copyright {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* Animations */
+      .animate__fadeInUp {
+        animation-delay: 0.2s;
+      }
+
+      .animate__delay-1 {
+        animation-delay: 0.4s;
+      }
+
+      .animate__delay-2 {
+        animation-delay: 0.6s;
+      }
+
+      .animate__delay-3 {
+        animation-delay: 0.8s;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .header__container,
+        .about__container {
+          flex-direction: column;
+          gap: 3rem;
+        }
+
+        .header__content,
+        .about__content {
+          padding-right: 0;
+          text-align: center;
+        }
+
+        .header__social {
+          justify-content: center;
+        }
+
+        .section__header {
+          font-size: 2.2rem;
+        }
+
+        .header__content h1 {
+          font-size: 3.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav__links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          height: 100vh;
+          background: var(--dark-color);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+          transition: var(--transition);
+          z-index: 1000;
+        }
+
+        .nav__links.active {
+          right: 0;
+        }
+
+        .nav__menu__btn {
+          display: block;
+        }
+
+        .section__header {
+          font-size: 2rem;
+        }
+
+        .header__content h1 {
+          font-size: 2.8rem;
+        }
+
+        .projects__grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        .certificates__container {
+          padding: 2rem 1.5rem;
+        }
+
+        .btn__outline {
+          margin-left: 0;
+          margin-top: 1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .section__container {
+          padding: 4rem 1rem;
+        }
+
+        .section__header {
+          font-size: 1.8rem;
+        }
+
+        .header__content h1 {
+          font-size: 2.4rem;
+        }
+
+        .btn {
+          padding: 0.75rem 1.5rem;
+        }
+
+        .project__links {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="nav__container">
+        <a href="#" class="nav__logo">
+          <span class="logo">S</span> Sanjay
+        </a>
+        <ul class="nav__links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact" class="btn">Contact</a></li>
+        </ul>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section__container header__container" id="home">
+      <div class="header__content animate__animated animate__fadeInUp">
+        <h1>Sanjay J</h1>
+        <p class="section__description">
+          UI/UX Designer & Full stack Developer creating beautiful, functional digital experiences 
+          with a focus on user-centered design and clean code.
+        </p>
+        <div class="header__btn">
+          <a href="#contact" class="btn animate__animated animate__fadeInUp animate__delay-1">Get In Touch</a>
+          <a href="resume.pdf" download class="btn btn__outline animate__animated animate__fadeInUp animate__delay-2">Download CV</a>
+        </div>
+        <div class="header__social animate__animated animate__fadeInUp animate__delay-3">
+          <a href="https://github.com/sanjaylokesh2006"><i class="ri-github-fill"></i></a>
+          <a href="https://www.linkedin.com/in/sanjay-j-402586338?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="ri-linkedin-fill"></i></a>
+          <a href="#"><i class="ri-dribbble-line"></i></a>
+          <a href="#"><i class="ri-twitter-fill"></i></a>
+        </div>
+      </div>
+      <div class="header__image animate__animated animate__fadeInRight">
+        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sanjay J" />
+      </div>
+    </header>
+
+    <!-- About -->
+    <section class="section__container about__container" id="about">
+      <div class="about__image animate__animated animate__fadeInLeft">
+        <img src="photo.jpg" alt="About Sanjay" />
+      </div>
+      <div class="about__content animate__animated animate__fadeInRight">
+        <h2 class="section__header">About Me</h2>
+        <h3>Creative designer & developer</h3>
+        <p>
+          I'm a passionate UI/UX designer and full stack developer with creating 
+          digital products that are both beautiful and functional. My approach combines design thinking 
+          with technical expertise to deliver exceptional user experiences.
+        </p>
+        <p>
+          I specialize in creating intuitive interfaces, designing engaging user experiences, and building 
+          responsive web applications using modern technologies like React,js, and Figma.
+        </p>
+        <div class="about__skills">
+          <h4>My Skills</h4>
+          <div class="skill__item">
+            <div class="skill__info">
+              <span class="skill__name">UI/UX Design</span>
+              <span class="skill__level">85%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill__item">
+            <div class="skill__info">
+              <span class="skill__name">HTML/CSS</span>
+              <span class="skill__level">85%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill__item">
+            <div class="skill__info">
+              <span class="skill__name">JavaScript</span>
+              <span class="skill__level">70%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__progress" style="width: 70%"></div>
+            </div>
+          </div>
+           <div class="skill__item">
+            <div class="skill__info">
+              <span class="skill__name">Java</span>
+              <span class="skill__level">75%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__progress" style="width: 75%"></div>
+            </div>
+          </div>
+           <div class="skill__item">
+            <div class="skill__info">
+              <span class="skill__name">Artificial Intelligence (AI)</span>
+              <span class="skill__level">90%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__progress" style="width: 90%"></div>
+            </div>
+          </div>
+           <div class="skill__item">
+            <div class="skill__info">
+              <span class="skill__name">Data analysis</span>
+              <span class="skill__level">85%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill__item">
+            <div class="skill__info">
+              <span class="skill__name">Python</span>
+              <span class="skill__level">75%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__progress" style="width: 75%"></div>
+            </div>
+          </div>
+          <div class="skill__item">
+            <div class="skill__info">
+              <span class="skill__name">Figma</span>
+              <span class="skill__level">80%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__progress" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section__container projects__container" id="projects">
+      <h2 class="section__header animate__animated animate__fadeInUp">Featured Projects</h2>
+      <p class="section__description animate__animated animate__fadeInUp">
+        Here are some of my recent projects that showcase my design and development skills.
+      </p>
+      <div class="projects__grid">
+        <div class="project__card animate__animated animate__fadeInUp">
+          <div class="project__image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 1" />
+          </div>
+          <div class="project__content">
+            <h3>Amazon Prime Dashboard</h3>
+            <p>🎬 Exploring Amazon Prime Content with Power BI: Movie & TV Show Analytics 📊</p>
+            <div class="project__tags">
+              <span class="project__tag">Data analysis</span>
+              <span class="project__tag">Microsoft PowerBI</span>
+              <span class="project__tag">Analytical thinking</span>
+            </div>
+            <div class="project__links">
+              <a href="#"><i class="ri-external-link-line"></i> Live Demo</a>
+              <a href="https://github.com/sanjaylokesh2006/Amazon_prime_dashboard"><i class="ri-github-line"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+        <div class="project__card animate__animated animate__fadeInUp animate__delay-1">
+          <div class="project__image">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 2" />
+          </div>
+          <div class="project__content">
+            <h3>Portfolio</h3>
+            <p>my first portfolio website that shows the details and skills with certifications and with more sections.</p>
+            <div class="project__tags">
+              <span class="project__tag">HTML</span>
+              <span class="project__tag">CSS</span>
+              <span class="project__tag">JavaScript</span>
+            </div>
+            <div class="project__links">
+              <a href="#"><i class="ri-external-link-line"></i> Live Demo</a>
+              <a href="https://github.com/sanjaylokesh2006/FUTURE_FS_01/tree/main/task%201/Portfolio-main"><i class="ri-github-line"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+        <div class="project__card animate__animated animate__fadeInUp animate__delay-2">
+          <div class="project__image">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 3" />
+          </div>
+          <div class="project__content">
+            <h3>Weather App</h3>
+            <p> Weather Dashboard — featuring real-time weather updates with a clean, user-friendly design and responsive functionality.</p>
+            <div class="project__tags">
+              <span class="project__tag">HTML/CSS</span>
+              <span class="project__tag">JavaScript</span>
+              <span class="project__tag">API</span>
+            </div>
+            <div class="project__links">
+              <a href="#"><i class="ri-external-link-line"></i> Live Demo</a>
+              <a href="https://github.com/sanjaylokesh2006/FUTURE_FS_02/tree/main/task%202/Weather-Dashboard-main/Weather-Dashboard-main"><i class="ri-github-line"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+        <div class="projects__grid">
+        <div class="project__card animate__animated animate__fadeInUp">
+          <div class="project__image">
+            <img src="https://cdn.pixabay.com/photo/2017/08/06/05/05/code-2588957_1280.jpg" alt="Project 1" />
+          </div>
+          <div class="project__content">
+            <h3>Industrial saftey management system</h3>
+            <p>It can detected the person is entering while some dangreous machine are running and stop the machine's process immediatey</p>
+            <div class="project__tags">
+              <span class="project__tag">python</span>
+              <span class="project__tag">software</span>
+            </div>
+            <div class="project__links">
+              <a href="#"><i class="ri-external-link-line"></i> Live Demo</a>
+              <a href=https://github.com/sanjaylokesh2006/Industrial_Saftey_Management_system><i class="ri-github-line"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="section__container certificates__container" id="certificates">
+      <h2 class="section__header animate__animated animate__fadeInUp">Certificates & Education</h2>
+      <p class="section__description animate__animated animate__fadeInUp">
+        My professional certifications.
+      </p>
+      <div class="certificates__grid">
+        <div class="certificate__card animate__animated animate__fadeInUp">
+          <div class="certificate__header">
+            <div class="certificate__icon">
+              <i class="ri-award-fill"></i>
+            </div>
+            <div class="certificate__content">
+              <h3>cloud computing Certificate</h3>
+              <p>IIT | NPTEL</p>
+            </div>
+          </div>
+          <span class="certificate__date">2025</span>
+        </div>
+        <div class="certificate__card animate__animated animate__fadeInUp animate__delay-1">
+          <div class="certificate__header">
+            <div class="certificate__icon">
+              <i class="ri-award-fill"></i>
+            </div>
+            <div class="certificate__content">
+              <h3>space internship</h3>
+              <p>ISRO | AGNIRVA</p>
+            </div>
+          </div>
+          <span class="certificate__date">2025</span>
+        </div>
+        <div class="certificate__card animate__animated animate__fadeInUp animate__delay-2">
+          <div class="certificate__header">
+            <div class="certificate__icon">
+              <i class="ri-award-fill"></i>
+            </div>
+            <div class="certificate__content">
+              <h3>Fundamentals of generative AI</h3>
+              <p>Microsoft</p>
+            </div>
+          </div>
+          <span class="certificate__date">2025</span>
+        </div>
+        <div class="certificate__card animate__animated animate__fadeInUp animate__delay-2">
+          <div class="certificate__header">
+            <div class="certificate__icon">
+              <i class="ri-award-fill"></i>
+            </div>
+            <div class="certificate__content">
+              <h3>python</h3>
+              <p>IIT | GUVI</p>
+            </div>
+          </div>
+          <span class="certificate__date">2023</span>
+        </div>
+      <div class="certificate__card animate__animated animate__fadeInUp animate__delay-1">
+          <div class="certificate__header">
+            <div class="certificate__icon">
+              <i class="ri-award-fill"></i>
+            </div>
+            <div class="certificate__content">
+              <h3>software internship</h3>
+              <p>ISRO | AGNIRVA</p>
+            </div>
+          </div>
+          <span class="certificate__date">2025</span>
+        </div>
+      </div>
+
+      <!-- Certificate Images Section -->
+      <!-- Certificate Images Section -->
+<div class="certificate-images__container">
+  <h3 class="section__header animate__animated animate__fadeInUp">Certificate Gallery</h3>
+  <p class="section__description animate__animated animate__fadeInUp">
+    Visual proof of my achievements and qualifications.
+  </p>
+  <div class="certificate-images__grid">
+    <div class="certificate-image__card animate__animated animate__fadeInUp">
+      <div class="certificate-image__wrapper">
+        <img src="whatsapp5.jpg" alt="Certificate 1" class="certificate-thumbnail" />
+      </div>
+      <div class="certificate-image__content">
+        <h3>cloud computing</h3>
+        <p>nptel Certification</p>
+      </div>
+    </div>
+    <div class="certificate-image__card animate__animated animate__fadeInUp animate__delay-1">
+      <div class="certificate-image__wrapper">
+        <img src="whatsapp.jpg" alt="Certificate 2" class="certificate-thumbnail" />
+      </div>
+      <div class="certificate-image__content">
+        <h3>space internship</h3>
+        <p>isro internship</p>
+      </div>
+    </div>
+    <div class="certificate-image__card animate__animated animate__fadeInUp animate__delay-1">
+      <div class="certificate-image__wrapper">
+        <img src="whatsapp4.jpg" alt="Certificate 3" class="certificate-thumbnail" />
+      </div>
+      <div class="certificate-image__content">
+        <h3>Full stack development internship</h3>
+        <p>Future interns</p>
+      </div>
+    </div>
+    <div class="certificate-image__card animate__animated animate__fadeInUp animate__delay-2">
+      <div class="certificate-image__wrapper">
+        <img src="whatsapp1.jpg" alt="Certificate 4" class="certificate-thumbnail" />
+      </div>
+      <div class="certificate-image__content">
+        <h3>Fundamentals of generative AI</h3>
+        <p>Microsoft</p>
+      </div>
+    </div>
+     <div class="certificate-image__card animate__animated animate__fadeInUp animate__delay-2">
+      <div class="certificate-image__wrapper">
+        <img src="ux.jpg" alt="Certificate 5" class="certificate-thumbnail" />
+      </div>
+      <div class="certificate-image__content">
+        <h3>ui/ux certificate</h3>
+        <p>udemy</p>
+      </div>
+    </div>
+    <div class="certificate-image__card animate__animated animate__fadeInUp animate__delay-2">
+      <div class="certificate-image__wrapper">
+        <img src="whatsapp6.png" alt="Certificate 6" class="certificate-thumbnail" />
+      </div>
+      <div class="certificate-image__content">
+        <h3>software internship</h3>
+        <p>ISRO</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fullscreen Image Viewer -->
+<div class="fullscreen-viewer" id="fullscreen-viewer">
+  <span class="close-viewer">&times;</span>
+  <img class="fullscreen-image" id="fullscreen-image" />
+  <div class="image-caption" id="image-caption"></div>
+</div>
+
+<style>
+  /* Certificate Images Section Enhancements */
+  .certificate-image__wrapper {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: 200px;
+  }
+
+  .certificate-thumbnail {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .certificate-image__wrapper:hover .certificate-thumbnail {
+    transform: scale(1.05);
+  }
+
+  /* Fullscreen Viewer Styles */
+  .fullscreen-viewer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  .fullscreen-image {
+    max-width: 90%;
+    max-height: 80vh;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  }
+
+  .close-viewer {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .close-viewer:hover {
+    color: var(--accent-color);
+  }
+
+  .image-caption {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    padding: 0 20%;
+  }
+
+  @media (max-width: 768px) {
+    .fullscreen-image {
+      max-width: 95%;
+      max-height: 70vh;
+    }
+    
+    .image-caption {
+      padding: 0 10%;
+    }
+  }
+</style>
+
+<script>
+  // Fullscreen Image Viewer Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const thumbnails = document.querySelectorAll('.certificate-thumbnail');
+    const fullscreenViewer = document.getElementById('fullscreen-viewer');
+    const fullscreenImage = document.getElementById('fullscreen-image');
+    const imageCaption = document.getElementById('image-caption');
+    const closeViewer = document.querySelector('.close-viewer');
+
+    // Open fullscreen viewer when clicking a thumbnail
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('click', function() {
+        fullscreenImage.src = this.src;
+        imageCaption.textContent = this.alt;
+        fullscreenViewer.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    });
+
+    // Close fullscreen viewer
+    closeViewer.addEventListener('click', function() {
+      fullscreenViewer.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    });
+
+    // Close when clicking outside the image
+    fullscreenViewer.addEventListener('click', function(e) {
+      if (e.target === fullscreenViewer) {
+        fullscreenViewer.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close with ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && fullscreenViewer.style.display === 'block') {
+        fullscreenViewer.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+</script>
+
+    <!-- Contact -->
+    <section class="section__container contact__container" id="contact">
+      <div class="contact__content animate__animated animate__fadeInUp">
+        <div class="logo">S</div>
+        <h2 class="section__header">Get In Touch</h2>
+        <p class="section__description">
+          Interested in working together or have a project in mind? Feel free to reach out!
+        </p>
+        <form class="contact__form">
+          <div class="form__group">
+            <input type="text" class="form__control" placeholder="Your Name" required />
+          </div>
+          <div class="form__group">
+            <input type="email" class="form__control" placeholder="Your Email" required />
+          </div>
+          <div class="form__group">
+            <textarea class="form__control" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div class="contact__socials">
+          <a href="https://github.com/sanjaylokesh2006"><i class="ri-github-fill"></i></a>
+          <a href="https://www.linkedin.com/in/sanjay-j-402586338?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="ri-linkedin-fill"></i></a>
+          <a href="#"><i class="ri-dribbble-line"></i></a>
+          <a href="#"><i class="ri-twitter-fill"></i></a>
+          <a href="#"><i class="ri-instagram-line"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="section__container footer__content">
+        <a href="#" class="logo">S</a>
+        <div class="footer__links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p class="footer__copyright">
+          &copy; 2025 Sanjay J. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const navLinks = document.querySelector('.nav__links');
+
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuBtn.innerHTML = navLinks.classList.contains('active') 
+          ? '<i class="ri-close-line"></i>' 
+          : '<i class="ri-menu-line"></i>';
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('.nav__links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          menuBtn.innerHTML = '<i class="ri-menu-line"></i>';
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // ScrollReveal animations
+      ScrollReveal().reveal('.animate__fadeInUp', {
+        distance: '30px',
+        origin: 'bottom',
+        opacity: 0,
+        duration: 1000,
+        easing: 'cubic-bezier(0.5, 0, 0, 1)',
+        interval: 200
+      });
+
+      ScrollReveal().reveal('.animate__fadeInLeft', {
+        distance: '30px',
+        origin: 'left',
+        opacity: 0,
+        duration: 1000,
+        easing: 'cubic-bezier(0.5, 0, 0, 1)'
+      });
+
+      ScrollReveal().reveal('.animate__fadeInRight', {
+        distance: '30px',
+        origin: 'right',
+        opacity: 0,
+        duration: 1000,
+        easing: 'cubic-bezier(0.5, 0, 0, 1)'
+      });
+
+      // Animate skill bars on scroll
+      const skillBars = document.querySelectorAll('.skill__progress');
+      
+      function animateSkillBars() {
+        skillBars.forEach(bar => {
+          const width = bar.parentElement.previousElementSibling.querySelector('.skill__level').textContent;
+          bar.style.width = width;
+        });
+      }
+
+      // Initialize skill bars with 0 width
+      window.addEventListener('load', () => {
+        skillBars.forEach(bar => {
+          bar.style.width = '0';
+        });
+        
+        // Create intersection observer for skill bars
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateSkillBars();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        document.querySelector('.about__skills').querySelectorAll('.skill__item').forEach(item => {
+          observer.observe(item);
+        });
+      });
+    </script>
+  </body>
+</html>
